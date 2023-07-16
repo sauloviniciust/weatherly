@@ -1,0 +1,16 @@
+{
+  "name": "templatetail",
+  "version": "1.0.0",
+  "description": "Este repositório contém o código do Weatherly, uma aplicação desenvolvida como parte do projeto final do curso de JavaScript da Coderhouse. O objetivo do aplicativo é fornecer informações meteorológicas precisas e atualizadas em tempo real para uma determinada localização.",
+  "main": "index.js",
+  "scripts": {
+    "start": "tailwindcss -i ./src/config.css -o ./src/index.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "tailwindcss": "^3.3.3"
+  }
+}
