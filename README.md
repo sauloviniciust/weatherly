@@ -4,7 +4,7 @@ Este repositório contém o código do Weatherly, uma aplicação desenvolvida c
 
 ## Tech Stack
 
-**Client:** HTML, Tailwind CSS, JavaScript e Integração de API.
+**Client:** HTML, CSS, JavaScript e Integração de API.
 
 ## Demo
 
@@ -18,7 +18,7 @@ Lembrar de inserir um gif com a demo do projeto depois;
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](./assets/images/weatherly/screenshot.jpeg)
 
 ## Run Locally
 
