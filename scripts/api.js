@@ -1,6 +1,6 @@
 'use strict';
 
-import OPEN_WEATHER_API_KEY from './key';
+import OPEN_WEATHER_API_KEY from './key.js';
 
 const apiKey = OPEN_WEATHER_API_KEY;
 
@@ -9,7 +9,6 @@ const apiKey = OPEN_WEATHER_API_KEY;
  * @param {string} URL OpenWeather API
  * @param {Function} callback callback
  */
-
 export const fetchData = function (URL, callback) {
 	fetch(`${URL}&appid=${apiKey}`)
 		.then((res) => res.json())
