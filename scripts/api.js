@@ -5,15 +5,29 @@ import OPEN_WEATHER_API_KEY from './key.js';
 const apiKey = OPEN_WEATHER_API_KEY;
 
 /**
+ * Função responsável por buscar dados climáticos da API da OpenWeather usando a
+ * função 'fetch'. Ela recebe uma URL da API e uma função de retorno (callback)
+ * como parâmetros.
  *
- * @param {string} URL OpenWeather API
- * @param {Function} callback callback
+ */
+
+/**
+ *
+ * @param {string} URL
+ * @param {Function} callback
  */
 export const fetchData = function (URL, callback) {
 	fetch(`${URL}&appid=${apiKey}`)
 		.then((res) => res.json())
 		.then((data) => callback(data));
 };
+
+/**
+ * Esse módulo contém um objeto chamado 'url', que possui várias funções que re-
+ * tornam URLs formatadas para diferentes endpoints da API. Cada função é respon-
+ * sável por gerar a URL apropriada com base nos parâmetros fornecidos.
+ *
+ */
 
 export const url = {
 	currentWeather(lat, lon) {
