@@ -1,5 +1,19 @@
 'use strict';
 
+/**
+ * Esse arquivo contém várias funções utilitárias para formatação de datas, horas
+ * e outros dados relacionados ao clima. Além disso, ele define um objeto chamado
+ * aquiText, que mapeia diferentes níveis do Índice de Qualidade do Ar (AQI) a
+ * textos descritivos. Essas funções e constantes são úteis para processar e exibir
+ * os dados na interface do usuário.
+ *
+ */
+
+/**
+ * Array que contém os nomes dos dias da semana.
+ *
+ */
+
 export const weekDays = [
 	'Sunday',
 	'Monday',
@@ -9,6 +23,11 @@ export const weekDays = [
 	'Friday',
 	'Saturday',
 ];
+
+/**
+ * Array que contém os nomes dos meses do ano.
+ *
+ */
 
 export const months = [
 	'Jan',
@@ -26,6 +45,13 @@ export const months = [
 ];
 
 /**
+ * Recebe um valor de data em formato Unix (em segundos) e um deslocamento de fuso
+ * horário em segundos. Retorna uma string formatada representando a data no for-
+ * mato 'Dia da Semana Dia, Mês'.
+ *
+ */
+
+/**
  *
  * @param {number} dateUnix unix date in seconds
  * @param {number} timezone timezone shift from UTC in seconds
@@ -34,11 +60,17 @@ export const months = [
 
 export const getDate = function (dateUnix, timezone) {
 	const date = new Date((dateUnix + timezone) * 1000);
-	const weekDays = weekDays[date.getUTCDay()];
-	const months = months[date.getUTCMonth()];
+	const weekDay = weekDays[date.getUTCDay()];
+	const month = months[date.getUTCMonth()];
 
-	return `${weekDays} ${date.getUTCDate()}, ${months}`;
+	return `${weekDay} ${date.getUTCDate()}, ${month}`;
 };
+
+/**
+ * Recebe um valor de tempo em formato Unix (em segundos) e um deslocamento de fuso
+ * horário em segundos. Retorna uma string formatada representando o horário no
+ * formato 'HH:mm AM/PM'.
+ */
 
 /**
  *
@@ -57,6 +89,12 @@ export const getTime = function (timeUnix, timezone) {
 };
 
 /**
+ * Mesma coisa da função getTime, mas retorna apenas as horas arredondadas no
+ * formato 'HH:00 AM/PM'.
+ *
+ */
+
+/**
  *
  * @param {number} timeUnix unix time in seconds
  * @param {number} timezone timezone shift from UTC in seconds
@@ -72,6 +110,12 @@ export const getHours = function (timeUnix, timezone) {
 };
 
 /**
+ * Recebe uma velocidade em metros por segundo (mps) e converte em quilômetros por
+ * hora (km/h).
+ *
+ */
+
+/**
  *
  * @param {number} mps metters per seconds
  * @returns {number} kilometers per hours
@@ -81,6 +125,12 @@ export const mpsToKmh = (mps) => {
 
 	return mph / 1000;
 };
+
+/**
+ * Objeto que mapeia diferentes nívdeo de Índice de Qualidade do Ar (AQI) a textos
+ * descritivos.
+ *
+ */
 
 export const aqiText = {
 	1: {
