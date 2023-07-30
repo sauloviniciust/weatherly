@@ -250,6 +250,10 @@ sub {
 	font-size: 1.2rem;
 }
 
+.fade-in {
+	animation: fade-in 1000ms ease forwards;
+}
+
 /* nav */
 
 .nav .btn-primary .span {
@@ -477,7 +481,7 @@ article.container::-webkit-scrollbar-button {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-inline: 2.5rem;
+	padding-inline: 2rem;
 	padding-block-start: 16px;
 	margin-block-start: 16px;
 	border-block-start: 1px solid #60a5fa;
@@ -496,7 +500,7 @@ article.container::-webkit-scrollbar-button {
 
 .current-weather-card .current-weather-list-text {
 	font-weight: 300;
-	font-size: 1.75rem;
+	font-size: 1.5rem;
 }
 
 /* 5-day forecast */
@@ -811,6 +815,15 @@ article.container::-webkit-scrollbar-button {
 	}
 	100% {
 		transform: translateY(-50%) rotate(1turn);
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
 	}
 }
 

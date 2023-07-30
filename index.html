@@ -72,34 +72,13 @@
 			</div>
 		</nav>
 		<main class="main">
-			<article class="container">
+			<article class="container" data-container>
 				<div class="content-left">
-					<section class="section current-weather">
-						<div class="card card-lg current-weather-card">
-							<h2 class="card-title title-2">Current Weather</h2>
-							<div class="current-weather-wrapper">
-								<img
-									src="./assets/images/icons/03d.png"
-									alt="Weather Icon"
-									class="weather-icon"
-								/>
-								<p class="heading">23&deg;<sup>C</sup></p>
-							</div>
-							<p class="body-3">Overcasting Clouds</p>
-							<ul class="current-weather-list">
-								<li class="current-weather-list-item">
-									<i class="fa-solid fa-calendar-day"></i>
-									<p class="current-weather-list-text title-3">
-										Monday, 17 Jul
-									</p>
-								</li>
-								<li class="current-weather-list-item">
-									<i class="fa-solid fa-location-dot"></i>
-									<p class="current-weather-list-text title-3">São Paulo, BR</p>
-								</li>
-							</ul>
-						</div>
-					</section>
+					<section
+						class="section current-weather"
+						aria-label="Current Weather"
+						data-current-weather
+					></section>
 					<section
 						class="section forecast"
 						aria-labelledby="forecast"
@@ -389,7 +368,7 @@
 							<h2 class="title-2" id="highlights-label">Today's Highlights</h2>
 							<div class="highlights-list">
 								<div class="card card-sm highlight-card one">
-									<h3 class=" title-3">Air Quality</h3>
+									<h3 class="title-3">Air Quality</h3>
 									<div class="highlight-card-wrapper">
 										<i class="fa-solid fa-wind"></i>
 										<ul class="card-list">
@@ -411,7 +390,7 @@
 											</li>
 										</ul>
 									</div>
-									<span class=" badge aqi-1 label-1" title="aqi message"
+									<span class="badge aqi-1 label-1" title="aqi message"
 										>Good</span
 									>
 								</div>
