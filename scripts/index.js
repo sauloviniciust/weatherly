@@ -71,9 +71,7 @@ searchInput.addEventListener('input', function () {
 
 				searchResult.classList.add('active');
 				searchResult.innerHTML = `
-				<ul class="result-list" data-result-list>
-				 	<li class="result-item"></li>
-				</ul>
+				<ul class="result-list" data-result-list></ul>
 				`;
 
 				const /** {NodeList} | [] */ items = [];
@@ -160,6 +158,7 @@ export const updateWeather = function (lat, lon) {
 		currentLocationBtn.removeAttribute('disabled');
 	}
 
+	// current weather section
 	fetchData(url.currentWeather(lat, lon), function (currentWeather) {
 		const {
 			weather,
@@ -205,7 +204,76 @@ export const updateWeather = function (lat, lon) {
 
 		currentWeatherSection.appendChild(card);
 
-		// highlights
+		// 5-Day forecast section
+
+		// hourly forecast section
+		fetchData(url.forecast(lat, lon), function (forecast) {
+			const {
+				list: forecastList,
+				city: { timezone },
+			} = forecast;
+
+			hourlySection.innerHTML = `
+				<h2 class="title-2">Today's Forecast</h2>
+		 		<div class="hourly-slider-container">
+		 			<ul class="hourly-slider-list" data-temp></ul>
+		 			<ul class="hourly-slider-list" data-wind></ul>
+		 		</div>
+			`;
+
+			for (const [index, forecastData] of forecastList.entries()) {
+				if (index > 7) {
+					break;
+				}
+
+				const {
+					dt: dateTimeUnix,
+					main: { temp },
+					weather,
+					wind: { deg: windDirection, speed: windSpeed },
+				} = forecastData;
+
+				const [{ icon, description }] = weather;
+
+				const tempList = document.createElement('li');
+				tempList.classList.add('hourly-slider-item');
+				tempList.innerHTML = `
+					<div class="card card-sm hourly-slider-card">
+						<p class="body-3">${data.getHours(dateTimeUnix, timezone)}</p>
+						<img
+							src="./assets/images/icons/${icon}.png"
+							title="${description}"
+							alt="${description}"
+							class="weather-icon"
+							loading="lazy"
+						/>
+						<p class="body-3">${parseInt(temp)}&deg;</p>
+					</div>
+				`;
+
+				hourlySection.querySelector('[data-temp]').appendChild(tempList);
+
+				const windList = document.createElement('li');
+				windList.classList.add('hourly-slider-item');
+				windList.innerHTML = `
+					<div class="card card-sm hourly-slider-card">
+						<p class="body-3">${data.getHours(dateTimeUnix, timezone)}</p>
+						<img
+							src="./assets/images/icons/arrow.png"
+							alt="Wind Direction"
+							class="weather-icon"
+							loading="lazy"
+							style="transform: rotate(${windDirection - 180}deg)"
+						/>
+						<p class="body-3">${parseInt(data.mpsToKmh(windSpeed))} Km/h</p>
+					</div>
+				`;
+
+				hourlySection.querySelector('[data-wind]').appendChild(windList);
+			}
+		});
+
+		// highlights section
 		fetchData(url.airPollution(lat, lon), function (airPollution) {
 			const [
 				{
