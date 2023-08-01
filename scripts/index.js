@@ -134,7 +134,7 @@ const errorContent = document.querySelector('[data-error-content]');
  * @param {*} lon
  */
 export const updateWeather = function (lat, lon) {
-	// loading.style.display = 'grid';
+	loading.style.display = 'grid';
 	container.style.overflowY = 'hidden';
 	errorContent.style.display = 'none';
 
@@ -204,8 +204,6 @@ export const updateWeather = function (lat, lon) {
 
 		currentWeatherSection.appendChild(card);
 
-		// 5-Day forecast section
-
 		// hourly forecast section
 		fetchData(url.forecast(lat, lon), function (forecast) {
 			const {
@@ -270,6 +268,50 @@ export const updateWeather = function (lat, lon) {
 				`;
 
 				hourlySection.querySelector('[data-wind]').appendChild(windList);
+			}
+
+			// 5-Day forecast section
+			forecastSection.innerHTML = `
+				<div class="card card-lg forecast-card">
+					<h2 class="card-title title-2" id="forecastLabel">
+						5-Day Forecast
+					</h2>
+					<ul data-forecast-list></ul>
+				</div>
+			`;
+
+			for (let i = 7, len = forecastList.length; i < len; i += 8) {
+				const {
+					main: { temp_max },
+					weather,
+					dt_txt,
+				} = forecastList[i];
+
+				const [{ icon, description }] = weather;
+
+				const date = new Date(dt_txt);
+
+				const fiveDayList = document.createElement('li');
+				fiveDayList.classList.add('card-item');
+				fiveDayList.innerHTML = `
+					<div class="forecast-icon-wrapper">
+						<img
+							src="./assets/images/icons/${icon}.png"
+							alt="${description}"
+							class="weather-icon"
+							title="${description}"
+						/>
+						<span class="span">
+							<p class="title-3">${parseInt(temp_max)}&deg;</p>
+						</span>
+					</div>
+					<p class="label-1">${date.getDate()} ${data.months[date.getUTCMonth()]}</p>
+					<p class="label-1">${data.weekDays[date.getUTCDay()]}</p>
+				`;
+
+				forecastSection
+					.querySelector('[data-forecast-list]')
+					.appendChild(fiveDayList);
 			}
 		});
 
