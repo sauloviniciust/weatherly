@@ -407,8 +407,13 @@ export const updateWeather = function (lat, lon) {
 		`;
 
 			highlightsSection.appendChild(card);
+
+			loading.style.display = 'none';
+			container.style.overflowY = 'overlay';
+
+			container.classList.add('fade-in');
 		});
 	});
 };
 
-export const error404 = function () {};
+export const error404 = () => (errorContent.style.display = 'flex');
