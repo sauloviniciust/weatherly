@@ -204,6 +204,100 @@ export const updateWeather = function (lat, lon) {
 		});
 
 		currentWeatherSection.appendChild(card);
+
+		// highlights
+		fetchData(url.airPollution(lat, lon), function (airPollution) {
+			const [
+				{
+					main: { aqi },
+					components: { no2, o3, so2, pm2_5 },
+				},
+			] = airPollution.list;
+
+			const card = document.createElement('div');
+			card.classList.add('card', 'card-lg', 'highlights-card');
+			card.innerHTML = `
+			<h2 class="title-2" id="highlights-label">Today's Highlights</h2>
+			<div class="highlights-list">
+				<div class="card card-sm highlight-card one">
+					<h3 class="title-3">Air Quality</h3>
+					<div class="highlight-card-wrapper">
+						<i class="fa-solid fa-wind"></i>
+						<ul class="card-list">
+							<li class="card-item">
+								<p class="title-1">${Number(pm2_5).toPrecision(3)}</p>
+								<p class="label-1">PM<sub>2.5</sub></p>
+							</li>
+							<li class="card-item">
+								<p class="title-1">${Number(so2).toPrecision(3)}</p>
+								<p class="label-1">SO<sub>2</sub></p>
+							</li>
+							<li class="card-item">
+								<p class="title-1">${Number(no2).toPrecision(3)}</p>
+								<p class="label-1">NO<sub>2</sub></p>
+							</li>
+							<li class="card-item">
+								<p class="title-1">${Number(o3).toPrecision(3)}</p>
+								<p class="label-1">O<sub>3</sub></p>
+							</li>
+						</ul>
+					</div>
+					<span class="badge aqi-${aqi} label-${aqi}" title="${
+				data.aqiText[aqi].message
+			}">${data.aqiText[aqi].level}</span>
+				</div>
+				<div class="card card-sm highlight-card two">
+					<h3 class="title-3">Sunrise & Sunset</h3>
+					<div class="card-list">
+						<div class="card-item">
+							<i class="fa-solid fa-sun"></i>
+							<div>
+								<p class="label-1">Sunrise</p>
+								<p class="label-1">${data.getTime(sunriseUnixUTC, timezone)}</p>
+							</div>
+						</div>
+						<div class="card-item">
+							<i class="fa-solid fa-moon"></i>
+							<div>
+								<p class="label-1">Sunset</p>
+								<p class="label-1">${data.getTime(sunsetUnixUTC, timezone)}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card card-sm highlight-card">
+			 	<h3 class="title-3">Sensation</h3>
+			 	<div class="highlight-card-wrapper">
+			 		<i class="fa-solid fa-temperature-three-quarters"></i>
+			 		<p class="title-1">${parseInt(feels_like)}&deg;<sup>C</sup></p>
+			 	</div>
+				</div>
+				<div class="card card-sm highlight-card">
+					<h3 class="title-3">Humidity</h3>
+					<div class="highlight-card-wrapper">
+						<i class="fa-solid fa-water"></i>
+						<p class="title-1">${humidity}<sup>%</sup></p>
+					</div>
+				</div>
+				<div class="card card-sm highlight-card">
+					<h3 class="title-3">Pressure</h3>
+					<div class="highlight-card-wrapper">
+						<i class="fa-solid fa-weight-scale"></i>
+						<p class="title-1">${pressure}<sup>hPa</sup></p>
+					</div>
+				</div>
+				<div class="card card-sm highlight-card">
+					<h3 class="title-3">Visibility</h3>
+					<div class="highlight-card-wrapper">
+						<i class="fa-solid fa-eye"></i>
+						<p class="title-1">${visibility / 1000}<sup>Km</sup></p>
+					</div>
+				</div>
+			</div>
+		`;
+
+			highlightsSection.appendChild(card);
+		});
 	});
 };
 

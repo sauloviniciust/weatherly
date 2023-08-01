@@ -74,9 +74,9 @@ export const getDate = function (dateUnix, timezone) {
 
 /**
  *
- * @param {number} timeUnix unix time in seconds
- * @param {number} timezone timezone shift from UTC in seconds
- * @returns {string} time string
+ * @param {number} timeUnix
+ * @param {number} timezone
+ * @returns {string}
  */
 
 export const getTime = function (timeUnix, timezone) {
