@@ -174,7 +174,8 @@ export const updateWeather = function (lat, lon) {
 		const card = document.createElement('div');
 		card.classList.add('card', 'card-lg', 'current-weather-card');
 		card.innerHTML = `
-			<h2 class="card-title title-2">CurrentWeather</h2>
+			<h2 class="card-title title-2">Current Weather</h2>
+			<p class="body-3">${description}</p>
 			<div class="current-weather-wrapper">
 				<img
 					src="./assets/images/icons/${icon}.png"
@@ -183,7 +184,6 @@ export const updateWeather = function (lat, lon) {
 				/>
 				<p class="heading">${parseInt(temp)}&deg;<sup>C</sup></p>
 			</div>
-			<p class="body-3">${description}</p>
 			<ul class="current-weather-list">
 				<li class="current-weather-list-item">
 					<i class="fa-solid fa-calendar-day"></i>
@@ -237,7 +237,7 @@ export const updateWeather = function (lat, lon) {
 				tempList.classList.add('hourly-slider-item');
 				tempList.innerHTML = `
 					<div class="card card-sm hourly-slider-card">
-						<p class="body-3">${data.getHours(dateTimeUnix, timezone)}</p>
+						<p class="body-3">${parseInt(temp)}&deg;</p>
 						<img
 							src="./assets/images/icons/${icon}.png"
 							title="${description}"
@@ -245,7 +245,7 @@ export const updateWeather = function (lat, lon) {
 							class="weather-icon"
 							loading="lazy"
 						/>
-						<p class="body-3">${parseInt(temp)}&deg;</p>
+						<p class="body-3">${data.getHours(dateTimeUnix, timezone)}</p>
 					</div>
 				`;
 
