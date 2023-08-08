@@ -1,6 +1,6 @@
 'use strict';
 
-import OPEN_WEATHER_API_KEY from './key.js';
+// import OPEN_WEATHER_API_KEY from './key.js';
 
 const apiKey = process.env.API_KEY;
 
