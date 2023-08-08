@@ -2,7 +2,9 @@
 
 // import OPEN_WEATHER_API_KEY from './key.js';
 
-const apiKey = process.env.API_KEY;
+// const apiKey = process.env.API_KEY;
+
+var apiKey = '%API_KEY%';
 
 /**
  * Função responsável por buscar dados climáticos da API da OpenWeather usando a
