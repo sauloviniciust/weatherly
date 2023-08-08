@@ -200,8 +200,9 @@ export const updateWeather = function (lat, lon) {
 
 		fetchData(url.reverseGeo(lat, lon), function ([{ name, country }]) {
 			card.querySelector('[data-location]').innerHTML = `${name}, ${country}`;
+			console.log(data-location)
 		});
-
+	
 		currentWeatherSection.appendChild(card);
 
 		// hourly forecast section
