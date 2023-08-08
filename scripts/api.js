@@ -4,7 +4,7 @@
 
 // const apiKey = process.env.API_KEY;
 
-var apiKey = '%API_KEY%';
+const apiKey = '%API_KEY%';
 
 /**
  * Função responsável por buscar dados climáticos da API da OpenWeather usando a
