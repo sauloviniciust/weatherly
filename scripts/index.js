@@ -126,7 +126,7 @@ const loading = document.querySelector('[data-loading]');
 const currentLocationBtn = document.querySelector(
 	'[data-current-location-btn]'
 );
-const errorContent = document.querySelector('[data-error-content]');
+// const errorContent = document.querySelector('[data-error-content]');
 
 /**
  *
@@ -136,7 +136,6 @@ const errorContent = document.querySelector('[data-error-content]');
 export const updateWeather = function (lat, lon) {
 	loading.style.display = 'grid';
 	container.style.overflowY = 'hidden';
-	errorContent.style.display = 'none';
 
 	container.classList.remove('fade-in');
 
@@ -200,9 +199,8 @@ export const updateWeather = function (lat, lon) {
 
 		fetchData(url.reverseGeo(lat, lon), function ([{ name, country }]) {
 			card.querySelector('[data-location]').innerHTML = `${name}, ${country}`;
-			console.log(data-location)
 		});
-	
+
 		currentWeatherSection.appendChild(card);
 
 		// hourly forecast section
@@ -417,4 +415,21 @@ export const updateWeather = function (lat, lon) {
 	});
 };
 
-export const error404 = () => (errorContent.style.display = 'flex');
+/**
+ * Responsável por exibir um alerta de erro personalizado para a página 404. O alerta é exibido usando a biblioteca SweetAlert2.
+ *
+ */
+
+const Swal = window.Swal;
+
+export const error404 = () => {
+	Swal.fire({
+		icon: 'error',
+		title: 'Error 404',
+		text: 'Page Not Found!',
+		confirmButtonColor: '#ff3d74',
+		confirmButtonText: 'Go Back Home!',
+	}).then(() => {
+		window.location.href = '#/weather?lat=23.5506507&lon=46.6333824';
+	});
+};
