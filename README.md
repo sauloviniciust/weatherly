@@ -8,7 +8,7 @@ Este repositório contém o código do Weatherly, uma aplicação desenvolvida c
 
 ## Demo
 
-Lembrar de inserir um gif com a demo do projeto depois;
+![Gif de demo do projeto](assets/images/weatherly/Weatherly.gif)
 
 ## Features
 

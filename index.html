@@ -1,135 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="title" content="Weatherly | Weather Made Easy!" />
-		<meta
-			name="description"
-			content="Uma aplicação desenvolvida por @sauloviniciust e @ynncstslv como parte do projeto final do curso de JavaScript da Coderhouse."
-		/>
-		<link
-			rel="shortcut icon"
-			href="./assets/images/weatherly/favicon.png"
-			type="image/x-icon"
-		/>
-		<title>Weatherly | Weather Made Easy!</title>
-		<link rel="stylesheet" href="./styles/index.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-			integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
-		/>
-	</head>
-	<body>
-		<nav class="nav">
-			<div class="container">
-				<a href="#"
-					><img
-						src="./assets/images/weatherly/logo.png"
-						alt="Logo"
-						class="logo"
-				/></a>
-				<div class="search" data-search>
-					<div class="search-wrapper">
-						<input
-							type="search"
-							name="search"
-							class="search-input"
-							placeholder="Search for a location..."
-							autocomplete="off"
-							data-search-input
-						/>
-						<i class="fa-solid fa-magnifying-glass lead-icon"></i>
-						<button
-							class="btn-icon lead-icon has-state"
-							aria-label="close search"
-							data-search-toggle
-						>
-							<i class="fa-solid fa-arrow-left"></i>
-						</button>
-					</div>
-					<div class="search-result" data-search-result></div>
-				</div>
-				<div class="nav-actions">
-					<button
-						class="btn-icon has-state"
-						aria-label="open search"
-						data-search-toggle
-					>
-						<i class="fa-solid fa-magnifying-glass"></i>
-					</button>
-					<a
-						href="#/current-location"
-						class="btn-primary has-state"
-						data-current-location-btn
-						><i class="fa-solid fa-location-crosshairs"></i
-						><span class="span">Current Location</span></a
-					>
-				</div>
-			</div>
-		</nav>
-		<main class="main">
-			<article class="container" data-container>
-				<div class="content-left">
-					<section
-						class="section current-weather"
-						aria-label="Current Weather"
-						data-current-weather
-					></section>
-					<section
-						class="section forecast"
-						aria-labelledby="forecast"
-						data-5-day-forecast
-					></section>
-				</div>
-				<div class="content-right">
-					<section
-						class="section hourly-forecast"
-						aria-label="hourly forecast"
-						data-hourly-forecast
-					></section>
-					<section
-						class="section highlights"
-						aria-labelledby="highlights-label"
-						data-highlights
-					></section>
-					<footer class="footer">
-						<p class="body-3">&copy; 2023 All Rights Reserved</p>
-						<p class="body-3">
-							Powered By:
-							<a
-								href="https://openweathermap.org/api"
-								title="OpenWeather API"
-								target="_blank"
-								rel="noopener"
-								><img
-									src="./assets/images/openweather/openweather.png"
-									alt="OpenWeather Logo"
-									loading="lazy"
-							/></a>
-						</p>
-					</footer>
-				</div>
-				<div class="loading" data-loading></div>
-			</article>
-		</main>
-		<div class="error-content" data-error-content>
-			<h2 class="heading">404</h2>
-			<p class="body-1">Page Not Found!</p>
-			<a href="#/weather?lat=23.5506507&lon=46.6333824" class="btn-primary"
-				><span class="span">Go Back Home!</span></a
-			>
-		</div>
-		<!-- js -->
-		<script type="module" src="./scripts/index.js"></script>
-		<script type="module" src="./scripts/route.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Weatherly | Weather Made Easy!" />
+    <meta
+      name="description"
+      content="Uma aplicação desenvolvida por @sauloviniciust e @ynncstslv como parte do projeto final do curso de JavaScript da Coderhouse."
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/weatherly/favicon.png"
+      type="image/x-icon"
+    />
+    <title>Weatherly | Weather Made Easy!</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <a href="#"
+          ><img
+            src="./assets/images/weatherly/logo.png"
+            alt="Logo"
+            class="logo"
+        /></a>
+        <div class="search" data-search>
+          <div class="search-wrapper">
+            <input
+              type="search"
+              name="search"
+              class="search-input"
+              placeholder="Search for a location..."
+              autocomplete="off"
+              data-search-input
+            />
+            <i class="fa-solid fa-magnifying-glass lead-icon"></i>
+            <button
+              class="btn-icon lead-icon has-state"
+              aria-label="close search"
+              data-search-toggle
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+          </div>
+          <div class="search-result" data-search-result></div>
+        </div>
+        <div class="nav-actions">
+          <button
+            class="btn-icon has-state"
+            aria-label="open search"
+            data-search-toggle
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <a
+            href="#/current-location"
+            class="btn-primary has-state"
+            data-current-location-btn
+            ><i class="fa-solid fa-location-crosshairs"></i
+            ><span class="span">Current Location</span></a
+          >
+        </div>
+      </div>
+    </nav>
+    <main class="main">
+      <article class="container" data-container>
+        <div class="content-left">
+          <section
+            class="section current-weather"
+            aria-label="Current Weather"
+            data-current-weather
+          ></section>
+          <section
+            class="section forecast"
+            aria-labelledby="forecast"
+            data-5-day-forecast
+          ></section>
+        </div>
+        <div class="content-right">
+          <section
+            class="section hourly-forecast"
+            aria-label="hourly forecast"
+            data-hourly-forecast
+          ></section>
+          <section
+            class="section highlights"
+            aria-labelledby="highlights-label"
+            data-highlights
+          ></section>
+          <footer class="footer">
+            <p class="body-3">&copy; 2023 All Rights Reserved</p>
+            <p class="body-3">
+              Powered By:
+              <a
+                href="https://openweathermap.org/api"
+                title="OpenWeather API"
+                target="_blank"
+                rel="noopener"
+                ><img
+                  src="./assets/images/openweather/openweather.png"
+                  alt="OpenWeather Logo"
+                  loading="lazy"
+              /></a>
+            </p>
+          </footer>
+        </div>
+        <div class="loading" data-loading></div>
+      </article>
+    </main>
+    <div class="error-content" data-error-content>
+      <h2 class="heading">404</h2>
+      <p class="body-1">Page Not Found!</p>
+      <a href="#/weather?lat=23.5506507&lon=46.6333824" class="btn-primary"
+        ><span class="span">Go Back Home!</span></a
+      >
+    </div>
+    <!-- js -->
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/route.js"></script>
+  </body>
 </html>
